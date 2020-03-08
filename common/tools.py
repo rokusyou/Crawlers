@@ -18,7 +18,7 @@ def write_info(f_name,info_list):
 		writer.writerow(info_list)
 
 	except UnicodeEncodeError as e:
-		pass
+		print(e)
 	
 	finally:
 		f_out.close()
@@ -37,7 +37,5 @@ def get_soup(url,sleep_sec):
         print( http_e.code , http_e.reason, url)
         log_str = str( http_e.code) + http_e.reason +  url
         write_log(LOG_F, str(http_e.code)  )
-    except Exception as e:
-        print(e)
     finally:
         sleep(sleep_sec)
